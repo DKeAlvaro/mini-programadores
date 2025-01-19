@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos - Mini Programadores</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo" style="text-decoration: none">
+            Mini Programadores
+            <img src="static/images/logo_3.svg" alt="Mini Programadores Logo" style="height: 50px; vertical-align: middle; transform: translateY(-3px);">
+        </a>
+        <button class="menu-toggle" aria-label="Alternar navegación">
+            ☰
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="courses.html">Cursos</a></li>
+            <li><a href="prices.html">Precios</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="courses-container">
+            <h1>Nuestros Cursos</h1>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="static/images/scratch_banner.jpg" alt="Curso de Scratch">
+                    </div>
+                    <div class="course-content">
+                        <h2>Scratch</h2>
+                        <p class="course-age">Edad: 8-12 años</p>
+                        <p class="course-description">Introducción a la programación mediante bloques visuales. Perfecto para comenzar en el mundo de la programación.</p>
+                        <ul class="course-details">
+                            <li>Pensamiento lógico</li>
+                            <li>Creación de juegos</li>
+                            <li>Animaciones interactivas</li>
+                        </ul>
+                        <button class="course-button" onclick="openModal('scratch-modal')">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="static/images/python_banner.jpg" alt="Curso de Python">
+                    </div>
+                    <div class="course-content">
+                        <h2>Python</h2>
+                        <p class="course-age">Edad: 12-15 años</p>
+                        <p class="course-description">Aprende el lenguaje de programación más versátil y demandado en la actualidad.</p>
+                        <ul class="course-details">
+                            <li>Fundamentos de programación</li>
+                            <li>Desarrollo de aplicaciones</li>
+                            <li>Proyectos prácticos</li>
+                        </ul>
+                        <button class="course-button" onclick="openModal('python-modal')">Ver Detalles</button>
+                    </div>
+                </div>
+
+                <div class="course-card new-course">
+                    <div class="course-content">
+                        <h2>¡Próximamente!</h2>
+                        <p class="course-description">Estamos preparando nuevos cursos. ¡Mantente atento a las novedades!</p>
+                        <button class="course-button notify">Avísame</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Scratch -->
+        <div id="scratch-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal('scratch-modal')">&times;</span>
+                <h2>Curso de Scratch - Detalles</h2>
+                
+                <div class="course-info">
+                    <div class="info-section">
+                        <h3>Información General</h3>
+                        <ul>
+                            <li><strong>Duración:</strong> 2 meses</li>
+                            <li><strong>Clases:</strong> 1 hora por sesión. 1 o 2 veces por semana</li>
+                            <li><strong>Edad:</strong> 8-12 años</li>
+                            <li><strong>Formato:</strong> Presencial</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>Temario</h3>
+                        <ol>
+                            <li>Introducción a la programación con bloques</li>
+                            <li>Conceptos básicos: variables y condicionales</li>
+                            <li>Bucles y eventos</li>
+                            <li>Creación de sprites y animaciones</li>
+                            <li>Desarrollo de juegos simples</li>
+                            <li>Proyecto final</li>
+                        </ol>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>Metodología</h3>
+                        <p>Clases prácticas con ejercicios interactivos y proyectos personalizados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Python -->
+        <div id="python-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal('python-modal')">&times;</span>
+                <h2>Curso de Python - Detalles</h2>
+                
+                <div class="course-info">
+                    <div class="info-section">
+                        <h3>Información General</h3>
+                        <ul>
+                            <li><strong>Duración:</strong> 3 meses</li>
+                            <li><strong>Clases:</strong> 1 hora por sesión. 1 o 2 veces por semana</li>
+                            <li><strong>Edad:</strong> 12-15 años</li>
+                            <li><strong>Formato:</strong> Presencial</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>Temario</h3>
+                        <ol>
+                            <li>Introducción a Python</li>
+                            <li>Variables y tipos de datos</li>
+                            <li>Estructuras de control</li>
+                            <li>Funciones y módulos</li>
+                            <li>Programación orientada a objetos básica</li>
+                            <li>Desarrollo de aplicaciones simples</li>
+                            <li>Proyecto final (Juego en Pygame)</li>
+                        </ol>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>Metodología</h3>
+                        <p>Aprendizaje basado en proyectos con ejercicios prácticos y desarrollo de aplicaciones reales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mini Programadores. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="static/js/main.js"></script>
+</body>
+</html> 

@@ -152,4 +152,70 @@ function changeGame(direction) {
 
     activeSlide.classList.remove('active');
     slides[nextIndex].classList.add('active');
-} 
+}
+
+// Function to parse CSV data
+function parseCSV(text) {
+    const lines = text.split('\n');
+    const headers = lines[0].split(',');
+    const result = [];
+    
+    for (let i = 1; i < lines.length; i++) {
+        if (!lines[i].trim()) continue; // Skip empty lines
+        const values = lines[i].split(',');
+        const entry = {};
+        headers.forEach((header, index) => {
+            entry[header.trim()] = values[index] ? values[index].trim() : '';
+        });
+        result.push(entry);
+    }
+    
+    return result;
+}
+
+// Function to format academy name with URL if available
+function formatAcademyName(academy) {
+    if (academy['academy_url'] && academy['academy_url'] !== 'NO') {
+        return `<a href="${academy['academy_url']}" target="_blank" rel="noopener">${academy['academy name']}</a>`;
+    }
+    return academy['academy name'];
+}
+
+// Function to load and display academias data
+async function loadAcademiasData() {
+    try {
+        const response = await fetch('/static/academias.csv');
+        const csvText = await response.text();
+        const academias = parseCSV(csvText);
+        
+        const tableBody = document.getElementById('comparison-table-body');
+        if (!tableBody) return;
+        
+        // Clear existing content
+        tableBody.innerHTML = '';
+        
+        // Add each academia to the table
+        academias.forEach((academia, index) => {
+            const row = document.createElement('tr');
+            if (index === 0) row.classList.add('fixed-row');
+            
+            row.innerHTML = `
+                <td>${index === 0 ? '<strong>' : ''}${formatAcademyName(academia)}${index === 0 ? '</strong>' : ''}</td>
+                <td>${academia.price_available !== 'NO' ? academia.price_available : 'No disponible'}</td>
+                <td>${academia.sessions_per_week || 'No especificado'}</td>
+                <td>${academia.go_to_school === 'SI' ? 'Sí' : 'No disponible'}</td>
+            `;
+            
+            tableBody.appendChild(row);
+        });
+    } catch (error) {
+        console.error('Error loading academias data:', error);
+    }
+}
+
+// Load academias data when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.comparison-table')) {
+        loadAcademiasData();
+    }
+}); 
