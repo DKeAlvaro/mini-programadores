@@ -184,12 +184,21 @@ function formatAcademyName(academy) {
 // Function to load and display academias data
 async function loadAcademiasData() {
     try {
-        const response = await fetch('/static/academias.csv');
+        console.log('Loading academias data...');
+        const response = await fetch('static/academias.csv');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const csvText = await response.text();
+        console.log('CSV content:', csvText);
         const academias = parseCSV(csvText);
+        console.log('Parsed data:', academias);
         
         const tableBody = document.getElementById('comparison-table-body');
-        if (!tableBody) return;
+        if (!tableBody) {
+            console.error('Table body element not found!');
+            return;
+        }
         
         // Clear existing content
         tableBody.innerHTML = '';
@@ -210,6 +219,10 @@ async function loadAcademiasData() {
         });
     } catch (error) {
         console.error('Error loading academias data:', error);
+        const tableBody = document.getElementById('comparison-table-body');
+        if (tableBody) {
+            tableBody.innerHTML = '<tr><td colspan="4">Error cargando los datos. Por favor, inténtelo de nuevo más tarde.</td></tr>';
+        }
     }
 }
 
