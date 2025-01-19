@@ -1,0 +1,7 @@
+<svg viewBox="20 20 160 160" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main shape -->
+  <rect x="40" y="40" width="120" height="120" rx="15" fill="#4A90E2"/>
+  <!-- Simplified code brackets -->
+  <path d="M70 80 L90 100 L70 120" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M130 80 L110 100 L130 120" fill="none" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

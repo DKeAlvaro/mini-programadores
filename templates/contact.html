@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block content %}
+<div class="contact-container">
+    <h1>Contáctanos</h1>
+    
+    <div class="contact-info">
+        <div class="contact-item">
+            <span class="phone-label">Teléfono:</span>
+            <span class="phone-number">+34 600 000 000</span>
+        </div>
+    </div>
+
+    <form id="contactForm" action="https://formspree.io/f/xzzzlglr" method="POST" class="contact-form">
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="tu@email.com" required>
+            <div class="form-border"></div>
+        </div>
+        <div class="form-group">
+            <label>Mensaje</label>
+            <textarea name="message" placeholder="¿En qué podemos ayudarte?" required></textarea>
+            <div class="form-border"></div>
+        </div>
+        <button type="submit" class="submit-button">
+            <span class="button-text">Enviar</span>
+            <div class="button-loader"></div>
+        </button>
+    </form>
+
+    <div id="successMessage" class="form-message success" style="display: none;">
+        <p>¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.</p>
+    </div>
+
+    <div id="errorMessage" class="form-message error" style="display: none;">
+        <p>Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.</p>
+    </div>
+</div>
+{% endblock %} 

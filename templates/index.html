@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}Mini Programadores{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <h1>Clases extraescolares de programación en <strong>Madrid centro</strong></h1>
+    
+    <div class="hero-intro">
+        <p class="main-message">En <strong>Mini Programadores</strong>, nuestro principal objetivo impartir clases amenas de programación a niños y adolescentes, y que acaben el curso con una idea agradable de lo que es programar.</p>
+    </div>
+
+    <div class="hero-features">
+        <div class="feature">
+            <h3>👨‍🏫 Profesores</h3>
+            <p>Contamos con un equipo de <strong>profesores jóvenes</strong> que transmiten la <em>pasión por la programación</em> y conocen las tecnologías más demandadas.</p>
+        </div>
+
+        <div class="feature">
+            <h3>📍 Ubicación</h3>
+            <p>Nos acercamos a los <strong>centros educativos</strong> a impartir las clases. Solo hace falta acceso a internet y un ordenador.</p>
+        </div>
+
+        <div class="feature">
+            <h3>💡 Transparencia</h3>
+            <p>Nuestro punto fuerte es la <strong>transparencia</strong>. Todo lo que necesitas saber está en nuestra web.</p>
+        </div>
+    </div>
+</div>
+
+<div class="game-section">
+    <h2>Lo que tus hijos aprenderán</h2>
+    <div class="learning-grid">
+        <div class="learning-card">
+            <h3>Scratch (10-12 años)</h3>
+            <div class="game-container">
+                <iframe 
+                    src="https://scratch.mit.edu/projects/1122115280/embed" 
+                    allowtransparency="true" 
+                    width="485" 
+                    height="402" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <div class="learning-card">
+            <h3>Python (12-14 años)</h3>
+            <div class="python-carousel">
+                <div class="game-slides">
+                    <button class="carousel-arrow prev" onclick="changeGame('prev')">&lt;</button>
+                    <button class="carousel-arrow next" onclick="changeGame('next')">&gt;</button>
+                    <div class="game-slide active">
+                        <img src="{{ url_for('static', filename='images/snake.gif') }}" alt="Juego Snake">
+                        <p>Snake Game</p>
+                    </div>
+                    <div class="game-slide">
+                        <img src="{{ url_for('static', filename='images/pong.gif') }}" alt="Juego Pong">
+                        <p>Pong Game</p>
+                    </div>
+                    <div>
+                        <div class="game-slide">
+                            <img src="{{ url_for('static', filename='images/dyno.gif') }}" alt="Juego Dyno">
+                            <p>Dyno Game</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="why-us-section">
+    <h2 class="section-title">¿Qué nos diferencia?</h2>
+    <p class="section-description">Compara nuestros servicios con otras academias de Madrid</p>
+    <p class="section-note"><em>Nota: Los datos mostrados han sido obtenidos de las webs de las academias</em></p>
+    
+    <div class="table-container">
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Academia</th>
+                    <th>Precio</th>
+                    <th>Clases por Semana</th>
+                    <th>Van al Cole</th>
+                </tr>
+            </thead>
+        </table>
+        <div class="fixed-row highlight-row">
+            <div class="fixed-cell"><strong>{{ our_academy['academy name'] }}</strong></div>
+            <div class="fixed-cell">{{ our_academy.price_available }}</div>
+            <div class="fixed-cell">{{ our_academy.sessions_per_week }}</div>
+            <div class="fixed-cell">{{ 'Sí' if our_academy.go_to_school == 'SI' else 'No' }}</div>
+        </div>
+        <div class="table-scroll">
+            <table class="comparison-table">
+                <tbody>
+                    {% for academia in academias %}
+                    <tr>
+                        <td>
+                            {% if academia.academy_url != 'NO' %}
+                                <a href="{{ academia.academy_url }}" target="_blank" rel="noopener">{{ academia['academy name'] }}</a>
+                            {% else %}
+                                {{ academia['academy name'] }}
+                            {% endif %}
+                        </td>
+                        <td>{{ academia.price_available if academia.price_available != 'NO' else 'No disponible' }}</td>
+                        <td>{{ academia.sessions_per_week if academia.sessions_per_week else 'No especificado' }}</td>
+                        <td>{{ 'Sí' if academia.go_to_school == 'SI' else 'No disponible' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="teachers-section">
+    <h2>Nuestro Equipo</h2>    
+    <div class="teachers-grid">
+        <div class="teacher-card">
+            <div class="teacher-header">
+                <div class="teacher-image">
+                    <img src="{{ url_for('static', filename='images/foto_provisional.jpeg') }}" alt="Alvaro Menendez">
+                </div>
+                <div class="teacher-title">
+                    <div class="title-row">
+                        <h3>Alvaro Menendez</h3>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/alvaromenendezros" target="_blank" rel="noopener" class="linkedin-link">
+                                <img src="{{ url_for('static', filename='images/linkedin.webp') }}" alt="LinkedIn">
+                            </a>
+                        </div>
+                    </div>
+                    <span class="teacher-role">Fundador y Profesor Principal</span>
+                </div>
+            </div>
+            
+            <div class="teacher-info">
+                <p>Graduado en Ciencia de Datos e Inteligencia Artificial por la Universidad de Maastricht (Países Bajos). Experiencia como profesor de programación en <a href="https://smarthealthandscience.nl/" target="_blank" rel="noopener">SMART HEALTH AND SCIENCE</a>. Apasionado de los niños y la programación.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

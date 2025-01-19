@@ -1,0 +1,9 @@
+<svg viewBox="40 40 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Simple geometric head -->
+  <rect x="50" y="50" width="100" height="100" rx="20" fill="#4A90E2"/>
+  <!-- Minimal eyes -->
+  <circle cx="85" cy="90" r="12" fill="white"/>
+  <circle cx="115" cy="90" r="12" fill="white"/>
+  <circle cx="85" cy="90" r="6" fill="black"/>
+  <circle cx="115" cy="90" r="6" fill="black"/>
+</svg>
