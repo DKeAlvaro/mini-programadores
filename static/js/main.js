@@ -185,7 +185,12 @@ function formatAcademyName(academy) {
 async function loadAcademiasData() {
     try {
         console.log('Loading academias data...');
-        const response = await fetch('static/academias.csv');
+        // Get the base URL for GitHub Pages
+        const baseUrl = window.location.pathname.startsWith('/mini-programadores') 
+            ? '/mini-programadores'
+            : '';
+        
+        const response = await fetch(`${baseUrl}/static/academias.csv`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
