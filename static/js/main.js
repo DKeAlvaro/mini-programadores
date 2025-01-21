@@ -215,9 +215,9 @@ async function loadAcademiasData() {
             
             row.innerHTML = `
                 <td>${index === 0 ? '<strong>' : ''}${formatAcademyName(academia)}${index === 0 ? '</strong>' : ''}</td>
-                <td>${academia.price_available !== 'NO' ? academia.price_available : 'No disponible'}</td>
+                <td>${academia.price_available !== 'NO' ? academia.price_available : 'No especificado'}</td>
                 <td>${academia.sessions_per_week || 'No especificado'}</td>
-                <td>${academia.go_to_school === 'SI' ? 'Sí' : 'No disponible'}</td>
+                <td>${academia.go_to_school === 'SI' ? 'Sí' : 'No especificado'}</td>
             `;
             
             tableBody.appendChild(row);

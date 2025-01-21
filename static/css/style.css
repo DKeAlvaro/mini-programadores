@@ -463,35 +463,10 @@ h3 { font-size: 1.5rem; }
     text-decoration: underline;
 }
 
-/* Responsive adjustments for teachers section */
-@media screen and (max-width: 768px) {
-    .teacher-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    .title-row {
-        justify-content: center;
-    }
-
-    .teacher-title h3 {
-        text-align: center;
-    }
-
-    .teacher-image {
-        width: 150px;
-        height: 150px;
-    }
-
-    .teacher-role {
-        text-align: center;
-    }
-}
 
 .price-per-class {
     color: #63b3ed;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 /* Footer */
@@ -513,60 +488,6 @@ footer {
     cursor: pointer;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .container {
-        padding: 1rem;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        text-align: center;
-        padding: 1rem 0;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 0.5rem 0;
-    }
-
-    .hero-section, .game-section, .teachers-section, .contact-container, .courses-container {
-        padding: 2rem 1rem;
-    }
-
-    .hero-section {
-        padding: 3rem 1.5rem;
-    }
-
-    .hero-section h1 {
-        font-size: 2rem;
-    }
-
-    .main-message {
-        font-size: 1.2rem;
-    }
-
-    .hero-features {
-        grid-template-columns: 1fr;
-    }
-
-    .game-container iframe {
-        height: 350px;
-    }
-
-    .courses-grid, .teachers-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
 /* Tablet adjustments */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -718,20 +639,6 @@ footer {
     background: rgba(99, 179, 237, 0.9);
 }
 
-/* Responsive adjustments for learning grid */
-@media screen and (max-width: 768px) {
-    .learning-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .learning-card {
-        padding: 1rem;
-    }
-    
-    .placeholder-image {
-        height: 350px;
-    }
-}
 
 /* Prices Styles */
 .prices-grid {
@@ -742,48 +649,52 @@ footer {
 }
 
 .price-card {
-    background-color: #1a202c;
-    border-radius: 12px;
+    background-color: #2d3748;
     padding: 2rem;
+    border-radius: 12px;
     text-align: center;
     transition: transform 0.2s ease;
-    border: 2px solid transparent;
-}
-
-.price-card.featured {
-    border-color: #63b3ed;
-    transform: scale(1.05);
+    border: 1px solid #4a5568;
 }
 
 .price-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
+}
+
+.price-card.featured {
+    border: 1px solid #63b3ed;
 }
 
 .price-header {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .price {
     margin: 1rem 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.3rem;
 }
 
 .amount {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    font-weight: 600;
     color: #63b3ed;
-    font-weight: bold;
 }
 
 .period {
     color: #718096;
+    margin-left: 0.2rem;
 }
 
 .price-features {
     list-style: none;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
 }
 
 .price-features li {
-    margin: 1rem 0;
+    margin: 0.8rem 0;
     color: #e2e8f0;
 }
 
@@ -859,6 +770,141 @@ footer {
 
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
+    .teachers-section{
+        margin: 0;
+    }
+    .game-slide.active {
+        max-height: 310px;
+    }
+    .game-container {
+        width: 100%;
+        max-height: 280px;
+    }
+    .python-carousel {
+        max-height: 330px;
+    }
+    .game-slides {
+        max-height: 280px;
+    }
+    .teacher-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .title-row {
+        justify-content: center;
+    }
+
+    .teacher-title h3 {
+        text-align: center;
+    }
+
+    .teacher-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .teacher-role {
+        text-align: center;
+    }
+    .table-container {
+        margin: 1rem -1rem;
+        border-radius: 0;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .comparison-table thead {
+        top: 0;
+    }
+
+    .fixed-row,
+    .fixed-row td {
+        top: 44px; /* Adjusted for smaller header height on mobile */
+    }
+
+    .table-scroll {
+        margin: 0;
+        padding: 0;
+    }
+
+    .table-scroll::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .table-scroll::-webkit-scrollbar-track {
+        background: #2d3748;
+    }
+
+    .table-scroll::-webkit-scrollbar-thumb {
+        background-color: #4a5568;
+        border-radius: 4px;
+    }
+    .container {
+        padding: 1rem;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+
+    .hero-section, .game-section, .teachers-section, .contact-container, .courses-container {
+        padding: 2rem 1rem;
+    }
+
+    .hero-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .main-message {
+        font-size: 1.2rem;
+    }
+
+    .hero-features {
+        grid-template-columns: 1fr;
+    }
+
+    .game-container iframe {
+        height: 350px;
+    }
+
+    .courses-grid, .teachers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .placeholder-image {
+        height: 350px;
+    }
+
     .price-card.featured {
         transform: none;
     }
@@ -866,8 +912,18 @@ footer {
     .price-card {
         padding: 1.5rem;
     }
-}
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+        padding: 1.5rem;
+    }
+    
+    .info-section {
+        padding: 1rem;
+    }
 
+    
+}
 /* Modal Styles */
 .modal {
     display: none;
@@ -948,18 +1004,6 @@ footer {
     }
 }
 
-/* Modal Responsive */
-@media screen and (max-width: 768px) {
-    .modal-content {
-        margin: 10% auto;
-        width: 95%;
-        padding: 1.5rem;
-    }
-    
-    .info-section {
-        padding: 1rem;
-    }
-}
 
 /* Why Us Section */
 .why-us-section {
@@ -1016,8 +1060,9 @@ footer {
 .comparison-table thead {
     position: sticky;
     top: 0;
-    z-index: 2;
+    z-index: 3;
     background-color: #2d3748;
+    box-shadow: 0 1px 0 #4a5568;
 }
 
 .comparison-table th {
@@ -1040,14 +1085,16 @@ footer {
 
 .fixed-row {
     position: sticky;
-    top: 48px;
-    z-index: 1;
+    top: 56px;
+    z-index: 2;
     background-color: #4c5b7e;
+    box-shadow: 0 2px 0 #63b3ed;
 }
 
 .fixed-row td {
     background-color: #4c5b7e;
-    border-bottom: 2px solid #63b3ed;
+    position: sticky;
+    top: 56px;
 }
 
 .comparison-table a {
@@ -1061,36 +1108,6 @@ footer {
     text-decoration: underline;
 }
 
-@media screen and (max-width: 768px) {
-    .table-container {
-        margin: 1rem -1rem;
-        border-radius: 0;
-    }
-    
-    .comparison-table th,
-    .comparison-table td {
-        padding: 0.75rem;
-        font-size: 0.9rem;
-    }
-
-    .table-scroll {
-        margin: 0;
-        padding: 0;
-    }
-
-    .table-scroll::-webkit-scrollbar {
-        height: 4px;
-    }
-
-    .table-scroll::-webkit-scrollbar-track {
-        background: #2d3748;
-    }
-
-    .table-scroll::-webkit-scrollbar-thumb {
-        background-color: #4a5568;
-        border-radius: 4px;
-    }
-}
 
 .advantages {
     max-width: 600px;
@@ -1115,5 +1132,42 @@ footer {
 .advantages li::before {
     color: #63b3ed;
     margin-right: 0.5rem;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #fc8181;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    opacity: 0.8;
+}
+
+.discount-badge {
+    background-color: #48bb78;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+    animation: pulse 2s infinite;
+}
+
+.savings {
+    color: #48bb78;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
