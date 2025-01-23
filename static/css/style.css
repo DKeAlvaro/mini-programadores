@@ -517,6 +517,11 @@ footer {
     gap: 0.5rem;
 }
 
+.email-label{
+    color: #63b3ed;
+    font-size: 1.2rem;
+
+}
 .phone-label {
     color: #63b3ed;
     font-size: 1.2rem;
